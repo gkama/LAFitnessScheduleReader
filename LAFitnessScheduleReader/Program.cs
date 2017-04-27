@@ -18,6 +18,7 @@ namespace LAFitnessScheduleReader
             Console.WriteLine(_classes.GetClassesByTime("5:45 am"));
             Console.WriteLine("\r\n");
             Console.WriteLine(schedule.GetClassesByTime("5:45 am"));
+            Console.WriteLine(schedule.GetClassDescription(_classes.ClassesList[34].ClassDescription));
         }
     }
 }

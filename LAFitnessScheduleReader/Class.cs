@@ -11,13 +11,15 @@ namespace LAFitnessScheduleReader
         public string Time { get; set; }
         public string Day { get; set; }
         public string ClassName { get; set; }
-        public string ClassDescription { get; set; }
+        public string ClassDescriptionsURI { get; set; }
+        public string ClassDescription { get; set; }       
 
-        public Class(string Time, string Day, string ClassName, string ClassDescription)
+        public Class(string Time, string Day, string ClassName, string ClassDescriptionsURI, string ClassDescription)
         {
             this.Time = Time;
             this.Day = Day;
             this.ClassName = ClassName;
+            this.ClassDescriptionsURI = ClassDescriptionsURI;
             this.ClassDescription = ClassDescription;
         }
 
