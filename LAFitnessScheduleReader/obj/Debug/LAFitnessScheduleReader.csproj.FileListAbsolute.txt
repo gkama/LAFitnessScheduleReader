@@ -1,0 +1,9 @@
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessScheduleReader.exe.config
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessScheduleReader.exe
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessScheduleReader.pdb
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.dll
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.pdb
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.xml
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessScheduleReader.csprojResolveAssemblyReference.cache
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessScheduleReader.exe
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessScheduleReader.pdb
