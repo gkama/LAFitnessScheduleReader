@@ -15,10 +15,11 @@ namespace LAFitnessScheduleReader
         {
             //Classes _classes = new Classes("986&Bellevue-Kentucky");
             //Classes schedule = new Classes("465&Cincinnati-Ohio");
-            Clubs clubs = new Clubs("ky", 41005);
+            Clubs clubs = new Clubs("ky", 41014);
 
-            //foreach (string name in clubs.ClubsNames)
-                Console.WriteLine(clubs.GetClassSchedules("ky", 41005, null, "6:00 pm"));
+            foreach (string name in clubs.ClubsIDs)
+                Console.WriteLine(name);
+            Console.WriteLine("");
         }
     }
 }

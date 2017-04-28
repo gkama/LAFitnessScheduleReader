@@ -26,7 +26,11 @@ namespace LAFitnessScheduleReader
         private string URL { get; set; }
         private List<string> ClassDescriptionsURIs { get; set; }
 
-        //Constructor
+        /// <summary>
+        /// Club ID refers to a Specific LA Fitness. It is located in the URL when accessing a LA Fitness website. Everything after 'clubid='
+        /// in the URL is needed in order to retrieve the Classes and their Schedule.
+        /// </summary>
+        /// <param name="ClubID"></param>
         public Classes(string ClubID)
         {
             try
@@ -48,7 +52,10 @@ namespace LAFitnessScheduleReader
         }
 
 
-        //Get the Schedule list of classes
+        /// <summary>
+        /// Get the Classes schedule.
+        /// </summary>
+        /// <returns></returns>
         public string GetClasses()
         {
             try
@@ -62,7 +69,10 @@ namespace LAFitnessScheduleReader
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        //Get the Schedule list of classes as a list
+        /// <summary>
+        /// Get the Classes schedule as a List.
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetClassesList()
         {
             try
@@ -77,7 +87,11 @@ namespace LAFitnessScheduleReader
             catch (Exception e) { throw new Exception(e.Message); }
         }
 
-        //Get classes by day
+        /// <summary>
+        /// Get the Classes schedule based on a Day of the week.
+        /// </summary>
+        /// <param name="Day">Day of Classes schedule - ('Sunday', 'Monday', etc. format)</param>
+        /// <returns></returns>
         public string GetClassesByDay(string Day)
         {
             try
@@ -91,7 +105,11 @@ namespace LAFitnessScheduleReader
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        //Get classes by time
+        /// <summary>
+        /// Get the Classes schedule based on a Time of the day.
+        /// </summary>
+        /// <param name="Time">Time of Classes schedule - ('hh:mm tt' format)</param>
+        /// <returns></returns>
         public string GetClassesByTime(string Time)
         {
             try
@@ -107,7 +125,12 @@ namespace LAFitnessScheduleReader
             catch (FormatException) { throw new FormatException("Incorrect Format for Time"); }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        //Get classes by date and time
+        /// <summary>
+        /// Get the Classes schedule based on a Day and Time.
+        /// </summary>
+        /// <param name="Day">Day of Classes schedule - ('Sunday', 'Monday', etc. format)</param>
+        /// <param name="Time">Time of Classes schedule - ('hh:mm tt' format)</param>
+        /// <returns></returns>
         public string GetClassesByDayTime(string Day, string Time)
         {
             try
@@ -125,7 +148,11 @@ namespace LAFitnessScheduleReader
             catch (FormatException) { throw new FormatException("Incorrect Format for Time"); }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        //Get classes descriptions
+        /// <summary>
+        /// Get the Class Description based on a Class Name.
+        /// </summary>
+        /// <param name="ClassName">Name of Class - Examples: 'Kickbox Cardio'</param>
+        /// <returns></returns>
         public string GetClassDescription(string ClassName)
         {
             ClassName = ClassName.ToUpper();

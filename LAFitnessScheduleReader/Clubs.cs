@@ -26,6 +26,16 @@ namespace LAFitnessScheduleReader
         public List<string> ZipCodes { get; set; }
         public List<string> States { get; set; }
 
+        //Read only access
+        public static Dictionary<string, string> BuiltInClubs
+        {
+            get
+            {
+                var configClubs = (Hashtable)ConfigurationManager.GetSection("ClubIDs");
+                return configClubs.Cast<DictionaryEntry>().ToDictionary(d => (string)d.Key, d => (string)d.Value);
+            }
+        }
+
         //Private
         private string URL { get; set; }
         private static string states = "|AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MP|OH|OK|OR|PW|PA|PR|RI|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY|";
@@ -62,10 +72,11 @@ namespace LAFitnessScheduleReader
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        private bool isStateAbbreviation (string State)
+        private bool isStateAbbreviation(string State)
         {
             return State.Length == 2 && states.IndexOf(State) > 0;
         }
+
 
         //Get data
         private void GetData()
@@ -118,7 +129,7 @@ namespace LAFitnessScheduleReader
                         //Add to the list
                         Classes Classes = new Classes(ClubID);
                         ClubsList.Add(new Club(State, Zip, ClubURI, ClubName, ClubAddress, ClubDescription, ClubID, Classes, Classes.GetClassesList()));
-                    }  
+                    }
                 }
             }
             catch (Exception e) { throw new Exception(e.Message); }
@@ -154,7 +165,7 @@ namespace LAFitnessScheduleReader
         /// <param name="Day">Day of Classes schedule - ('Sunday', 'Monday', etc. format)</param>
         /// <param name="Time">Time of Classes schedule - ('hh:mm tt' format)</param>
         /// <returns></returns>
-        public string GetClassSchedules(string Day = null, string Time = null)
+        public string GetAllClubsClassesSchedule(string Day = null, string Time = null)
         {
             try
             {
@@ -178,7 +189,7 @@ namespace LAFitnessScheduleReader
         /// <param name="Day">Day of Classes schedule - ('Sunday', 'Monday', etc. format)</param>
         /// <param name="Time">Time of Classes schedule - ('hh:mm tt' format)</param>
         /// <returns></returns>
-        public string GetClassSchedules(string Name, string Day = null, string Time = null)
+        public string GetClassesSchedule(string Name, string Day = null, string Time = null)
         {
             try
             {
@@ -195,32 +206,6 @@ namespace LAFitnessScheduleReader
                 }
                 else
                     return "No Schedule Available";
-            }
-            catch (Exception e) { throw new Exception(e.Message); }
-        }
-        /// <summary>
-        /// Gets the Classes schedule for Club found from the spcified Zip and State.
-        /// If a Club does not match the exact State and Zip, the nearest Club's schedule to the Zip is returned.
-        /// Classes are returned based on the Day and Time specified.
-        /// If Day and Time are both null, then the schedule for all days and times of the Club is returned.
-        /// </summary>
-        /// <param name="State">State of Club</param>
-        /// <param name="Zip">Zip of Club</param>
-        /// <param name="Day">Day of Classes schedule - ('Sunday', 'Monday', etc. format)</param>
-        /// <param name="Time">Time of Classes schedule - ('hh:mm tt' format)</param>
-        /// <returns></returns>
-        public string GetClassSchedules(string State, int Zip, string Day = null, string Time = null)
-        {
-            try
-            {
-                Club club = GetClub(State, Zip);
-                StringBuilder toReturn = new StringBuilder();
-
-                //Build the string
-                toReturn.Append(club.ToString()).Append("\r\n");
-                toReturn.Append(club.GetClassSchedule(Day, Time)).Append("\r\n");
-
-                return toReturn.ToString().TrimEnd('\r').TrimEnd('\n');
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
@@ -337,7 +322,7 @@ namespace LAFitnessScheduleReader
         {
             try
             {
-                Dictionary<string, string> toReturn = new Dictionary<string,string>();
+                Dictionary<string, string> toReturn = new Dictionary<string, string>();
                 foreach (Club c in this.ClubsList)
                     if (!toReturn.ContainsKey(c.ClubName))
                         toReturn.Add(c.ClubName, c.ClubID);
