@@ -1,0 +1,8 @@
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessReader.dll.config
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessReader.dll
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\LAFitnessReader.pdb
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.dll
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.pdb
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.xml
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessReader.dll
+c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessReader.pdb

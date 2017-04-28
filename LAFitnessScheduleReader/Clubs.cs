@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
-namespace LAFitnessScheduleReader
+namespace LAFitnessReader
 {
     class Clubs
     {

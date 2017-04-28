@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 
-namespace LAFitnessScheduleReader
+namespace LAFitnessReader
 {
     class Classes
     {
