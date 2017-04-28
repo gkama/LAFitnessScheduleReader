@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LAFitnessScheduleReader
 {
-    public class Class
+    internal class Class
     {
         public string Time { get; set; }
         public string Day { get; set; }

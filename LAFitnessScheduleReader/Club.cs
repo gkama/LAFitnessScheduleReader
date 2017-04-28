@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LAFitnessScheduleReader
 {
-    class Club
+    internal class Club
     {
         public string State { get; set; }
         public string Zip { get; set; }
@@ -15,8 +15,11 @@ namespace LAFitnessScheduleReader
         public string ClubAddress { get; set; }
         public string ClubDescription { get; set; }
         public string ClubID { get; set; }
+        public Classes Classes { get; set; }
+        public List<string> ClassesList { get; set; }
 
-        public Club(string State, string Zip, string ClubURI, string ClubName, string ClubAddress, string ClubDescription, string ClubID)
+        public Club(string State, string Zip, string ClubURI, string ClubName, string ClubAddress, string ClubDescription, string ClubID, 
+            Classes Classes, List<string> ClassesList)
         {
             this.State = State;
             this.Zip = Zip;
@@ -25,33 +28,43 @@ namespace LAFitnessScheduleReader
             this.ClubAddress = ClubAddress;
             this.ClubDescription = ClubDescription;
             this.ClubID = ClubID;
+            this.Classes = Classes;
+            this.ClassesList = ClassesList;
         }
 
         public override string ToString()
         {
-            return string.Format("{0} - {1}", this.ClubName, ClubAddress);
+            return string.Format("{0} - {1}", this.ClubName, this.ClubAddress);
         }
 
         //Output functions
         public string GetClassSchedule(string Day = null, string Time = null)
         {
-            if (Day == null & Time == null)
-                return "";
-            else if (Day != null & Time == null)
+            if (Day == null && Time == null)
             {
-                Classes classes = new Classes(this.ClubID);
-                return classes.GetClassesByDay(Day);
+                return this.Classes.GetClasses();
+            }
+            else if (Day != null && Time == null)
+            {
+                return this.Classes.GetClassesByDay(Day);
             }
             else if (Day == null && Time != null)
             {
-                Classes classes = new Classes(this.ClubID);
-                return classes.GetClassesByTime(Time);
+                return this.Classes.GetClassesByTime(Time);
             }
             else
             {
-                Classes classes = new Classes(this.ClubID);
-                return classes.GetClassesByDayTime(Day, Time);
+                return this.Classes.GetClassesByDayTime(Day, Time);
             }         
+        }
+        public string GetClassSchedule()
+        {
+            StringBuilder toReturn = new StringBuilder();
+            foreach (string s in this.ClassesList)
+            {
+                toReturn.Append(s).Append("\r\n");
+            }
+            return toReturn.ToString();
         }
     }
 }

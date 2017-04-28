@@ -11,7 +11,7 @@ using HtmlAgilityPack;
 
 namespace LAFitnessScheduleReader
 {
-    public class Classes
+    class Classes
     {
         //Public
         public List<Class> ClassesList { get; set; }
@@ -49,7 +49,7 @@ namespace LAFitnessScheduleReader
 
 
         //Get the Schedule list of classes
-        public string Schedule()
+        public string GetClasses()
         {
             try
             {
@@ -59,6 +59,20 @@ namespace LAFitnessScheduleReader
                     toReturn.Append(c.ToString()).Append("\r\n");
                 }
                 return toReturn.ToString().TrimEnd('\n').TrimEnd('\r');
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
+        //Get the Schedule list of classes as a list
+        public List<string> GetClassesList()
+        {
+            try
+            {
+                List<string> toReturn = new List<string>();
+                foreach (Class c in this.ClassesList)
+                {
+                    toReturn.Add(c.ToString());
+                }
+                return toReturn;
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
