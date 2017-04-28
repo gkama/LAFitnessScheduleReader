@@ -182,7 +182,7 @@ namespace LAFitnessScheduleReader
             catch (Exception e) { throw new Exception(e.Message); }
         }
 
-        //Get schedule
+        //Get data
         private void GetData()
         {
             try

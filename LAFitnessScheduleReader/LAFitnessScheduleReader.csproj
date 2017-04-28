@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Class.cs" />
     <Compile Include="Classes.cs" />
+    <Compile Include="Club.cs" />
+    <Compile Include="Clubs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LAFitnessClub.cs" />
