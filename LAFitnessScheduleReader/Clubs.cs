@@ -21,15 +21,47 @@ namespace LAFitnessScheduleReader
 
         //Private
         private string URL { get; set; }
+        private static string states = "|AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MP|OH|OK|OR|PW|PA|PR|RI|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY|";
 
         public Clubs(string State, int Zip)
         {
-            this.State = State;
-            this.Zip = Zip;
-            ClubsList = new List<Club>();
+            try
+            {
+                Regex matchZip = new Regex(@"^\d{5}$", RegexOptions.IgnoreCase);
+                if (!isStateAbbreviation(State.ToUpper()))
+                    throw new Exception("Incorrect format for State");
+                else if (!matchZip.Match(Zip.ToString()).Success)
+                    throw new Exception("Incorrect format for Zip");
+                else
+                {
+                    this.State = State;
+                    this.Zip = Zip;
+                    ClubsList = new List<Club>();
 
-            GetData();
+                    GetData();
+                }
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
         }
+        private bool isStateAbbreviation (string state)
+        {
+            return state.Length == 2 && states.IndexOf( state ) > 0;
+        }
+
+        //Output functions
+        public string GetClassSchedules(string Day = null, string Time = null)
+        {
+            StringBuilder toReturn = new StringBuilder();
+            foreach (Club c in this.ClubsList)
+            {
+                toReturn.Append(c.ToString()).Append("\r\n");
+                toReturn.Append(c.ClubAddress).Append("\r\n");
+                toReturn.Append(c.GetClassSchedule(Day, Time)).Append("\r\n");
+                toReturn.Append("\r\n");
+            }
+            return toReturn.ToString();
+        }
+        
 
         //Get data
         private void GetData()

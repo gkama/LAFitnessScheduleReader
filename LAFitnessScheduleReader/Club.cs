@@ -31,5 +31,27 @@ namespace LAFitnessScheduleReader
         {
             return string.Format("{0} - {1}", this.ClubName, ClubAddress);
         }
+
+        //Output functions
+        public string GetClassSchedule(string Day = null, string Time = null)
+        {
+            if (Day == null & Time == null)
+                return "";
+            else if (Day != null & Time == null)
+            {
+                Classes classes = new Classes(this.ClubID);
+                return classes.GetClassesByDay(Day);
+            }
+            else if (Day == null && Time != null)
+            {
+                Classes classes = new Classes(this.ClubID);
+                return classes.GetClassesByTime(Time);
+            }
+            else
+            {
+                Classes classes = new Classes(this.ClubID);
+                return classes.GetClassesByDayTime(Day, Time);
+            }         
+        }
     }
 }
