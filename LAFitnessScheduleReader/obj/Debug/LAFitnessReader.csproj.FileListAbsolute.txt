@@ -6,3 +6,4 @@ c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\
 c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.xml
 c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessReader.dll
 c:\users\gkam4141\documents\visual studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessReader.pdb
+C:\Users\gkam4141\Documents\Visual Studio 2013\Projects\LAFitnessScheduleReader\LAFitnessScheduleReader\obj\Debug\LAFitnessReader.csprojResolveAssemblyReference.cache

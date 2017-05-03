@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>LAFitnessReader</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Georgi Kamacharov</authors>
     <owners>Georgi Kamacharov</owners>
     <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
@@ -10,11 +10,17 @@
     <iconUrl>https://github.com/gogyprogramming/MouseMover/blob/master/XMLReader/nuget.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Package reads data from LA Fitness' website to retieve information regarding Clubs and Class schedules. It is useful for easy access to said information. You can find clubs near you or anywhere in the US (based on State and Zip code). Once you have a list of Clubs or you have found the Club you want, you can find information such as Classes' times, days, instructors, etc..</description>
-    <releaseNotes>Initial Release</releaseNotes>
+    <releaseNotes>Release 1.0.1</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>LA Fitness Schedule Reader Clubs Classes</tags>
+
+    <!-- Dependencies are automatically installed when the package is installed -->
+    <dependencies>
+        <dependency id="HtmlAgilityPack" version="1.4.9.5" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="LAFitnessScheduleReader\bin\Debug\LAFitnessReader.dll" target="lib" />
+    <file src="LAFitnessScheduleReader\bin\Debug\LAFitnessReader.dll" target="lib\net45" />
+    <file src="LAFitnessScheduleReader\bin\Debug\HtmlAgilityPack.dll" target="lib\net45" />
   </files>
 </package>
